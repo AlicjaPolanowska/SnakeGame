@@ -1,0 +1,6 @@
+setup.py
+snake.py
+snake.egg-info/PKG-INFO
+snake.egg-info/SOURCES.txt
+snake.egg-info/dependency_links.txt
+snake.egg-info/top_level.txt
