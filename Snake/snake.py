@@ -11,8 +11,25 @@ class Snake:
     y = 5
     move = None
 
+def reset_game():
+    Snake.board = list()
+    Snake.snakeBody = list()
+    Snake.currentMove = 'D'
+    Snake.x = 5
+    Snake.y = 5
+    Snake.move = None
+
 def reset_board():
-     Snake.board = [
+    ''' list filled with numbers, where each presents different game object
+        0- stands for empty place
+        1- stands for snake head
+        2-stands for snake body
+        3- stands for snake tail-end
+        5-stands for snake treat
+        9-stands for wall
+
+    '''
+    Snake.board = [
                     [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
                     [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9],
                     [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9],
@@ -26,19 +43,10 @@ def reset_board():
                     [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9],
                     [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
                     ]
-     Snake.board[Snake.x][Snake.y] = 5
+    Snake.board[Snake.x][Snake.y] = 5
 
 
 def create_new_board():
-    ''' list filled with numbers, where each presents different game object
-        0- stands for empty place
-        1- stands for snake head
-        2-stands for snake body
-        3- stands for snake tail-end
-        5-stands for snake treat
-        9-stands for wall
-
-    '''
     reset_board()
     Snake.board [5][2] = 1
     Snake.snakeBody.append([5, 2])
@@ -144,6 +152,7 @@ def find_on_board() -> list(): # finds possition player want a snake to go
     return destiny
 
 def run():
+    reset_game()
     create_new_board()
     show_board()
     move = ''
