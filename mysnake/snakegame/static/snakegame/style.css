@@ -1,0 +1,26 @@
+.tup {
+}
+
+.empty-tup {
+  content:url(https://via.placeholder.com/30/FFFFFF/FFFFFF);
+}
+
+.head-tup {
+  content:url(https://via.placeholder.com/30/005555/005555);
+}
+
+.body-tup {
+  content:url(https://via.placeholder.com/30/00CCA4/00CCA4);
+}
+
+.tail-tup {
+  content:url(https://via.placeholder.com/30/00CCA4/00CCA4);
+}
+
+.board-tup {
+  content:url(https://via.placeholder.com/30/AAAAAA/AAAAAA);
+}
+
+.treat-tup {
+  content:url(https://via.placeholder.com/30/DD0808/DD0808);
+}

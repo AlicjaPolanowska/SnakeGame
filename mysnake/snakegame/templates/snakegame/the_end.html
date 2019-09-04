@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'snakegame/style.css' %}">
+
+<h1>Your score: {{score}}</h1>
+
+<div class='btn-replay'>
+  <a href="{% url 'snakegame:newgame' %}">Replay</a>
+</div>
+<div class='btn-return'>
+  <a href="{% url 'snakegame:index' %}">Return to homepage</a>
+</div>

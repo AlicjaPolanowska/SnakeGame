@@ -1,12 +1,28 @@
-<h1>Play</h1>
+{% extends 'snakegame/base.html' %}
 
-<form name = 'my_form' value='d' action = "{% url 'snakegame:game' %}"  method="post">
+{% block content %}
+<h1>Feed the snake!</h1>
+
+<form name = 'my_form' action = "{% url 'snakegame:game' %}"  method="post">
   {% csrf_token %}
   <table>
   {% for row in board %}
-    <tr>{% for tup in row %}
+    <tr>
+    {% for tup in row %}
       {% load snake_tags %}
-      <td>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</td>
+      {% if board|index:forloop.parentloop.counter0|index:forloop.counter0 == 0 %}
+        <td><div class='tup empty-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% elif board|index:forloop.parentloop.counter0|index:forloop.counter0 == 1 %}
+        <td><div class='tup head-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% elif board|index:forloop.parentloop.counter0|index:forloop.counter0 == 2 %}
+        <td><div class='tup body-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% elif board|index:forloop.parentloop.counter0|index:forloop.counter0 == 3 %}
+        <td><div class='tup tail-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% elif board|index:forloop.parentloop.counter0|index:forloop.counter0 == 5 %}
+        <td><div class='tup treat-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% elif board|index:forloop.parentloop.counter0|index:forloop.counter0 == 9 %}
+        <td><div class='tup board-tup'>{{board|index:forloop.parentloop.counter0|index:forloop.counter0}}</div></td>
+      {% endif %}
     {% endfor %}
     </tr>
   {% endfor %}
@@ -14,6 +30,8 @@
   </table>
   <input type='hidden' name = 'move_key' id = 'move_key'/>
 </form>
+{% endblock %}
+{% block javascript %}
 <script type="text/javascript">
   var interval = window.setInterval(function(){
     document.forms['my_form'].submit();
@@ -28,3 +46,4 @@
   };
 
 </script>
+{% endblock %}

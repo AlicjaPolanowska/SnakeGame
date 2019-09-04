@@ -1,0 +1,10 @@
+{% extends 'snakegame/base.html' %}
+
+{% block content %}
+<h1>Welcome to SnakeGame!</h1>
+
+<h3>To play press NewGame</h3>
+<div class='btn-replay'>
+  <a href="{% url 'snakegame:newgame' %}">NewGame</a>
+</div>
+{% endblock %}
